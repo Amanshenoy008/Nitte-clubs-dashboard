@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./src/generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model events {
+  id Int @id @default(autoincrement())
+  title String
+  notifievent String
+  clubname String
+  img String
+}
+
+model authorcraft {
+  id Int @id @default(autoincrement())
+  title String
+  timendata DateTime
+  venue     String
+  eventdetail String
+
+}
+
+model aura{
+  id Int @id @default(autoincrement())
+  title String
+  timendata DateTime
+  venue     String
+  eventdetail String
+}
+
+model tallem{
+  id Int @id @default(autoincrement())
+  title String
+  timendata DateTime
+  venue     String
+  eventdetail String
+
+}
+
+model csi{
+  id Int @id @default(autoincrement())
+  title String
+  timendata DateTime
+  venue     String
+  eventdetail String
+}

@@ -6,6 +6,48 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model events {
+  id Int @id @default(autoincrement())
+  title String
+  notifievent String
+  clubname String
+  img String
+}
+
+model authorcraft {
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+
+}
+
+model aura{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+
+model tallem{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+
+}
+
+model csi{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
 }
