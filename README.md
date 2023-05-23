@@ -4,10 +4,11 @@ Imagine having a one-stop destination where you can effortlessly stay up-to-date
 
 <h1>Tech stack</h1>
 NextJs, Tailwindcss + DaisyUI + ReactMUI , Prisma ORM
+<br>
 
 <h1>Running the project locally</h1>
-1) Clone the repo
-'''
+ <li>Clone the repo</li>
+```
 npm i 
 
 npx prisma generate
@@ -16,7 +17,7 @@ npx prisma migrate dev
 
 npx run dev
 
-'''
+```
 
 <h1> Prototype Design </h1>
 Click <a href="https://www.figma.com/file/5VgurYNLOjUqGAMFBu2ydY/Untitled?type=design&t=a6wu1H0I3JtG0HhK-0">Here!!!!</a>
