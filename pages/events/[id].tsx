@@ -12,9 +12,15 @@ const idd = ({e}:{e:any}) => {
 
     return (<>
     <div>
-        <div>
-            <Header />
-        </div>
+        {
+            (e ? <h1>Loading</h1>:
+            e.map((d)=>(
+                <div>
+                    
+                </div>
+            )))
+        }
+        
     </div>
     </>  );
 }
