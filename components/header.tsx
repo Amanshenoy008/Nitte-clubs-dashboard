@@ -1,7 +1,16 @@
-const Header = () => {
-    return (<>
+
+
+const Header = ({title,img}:{title:string,img:string}) => {
     
-    hi
+    
+    
+    return (<>
+    <div>
+        {title}
+
+
+
+    </div>
     </>  );
 }
  

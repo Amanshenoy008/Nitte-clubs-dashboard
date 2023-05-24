@@ -8,7 +8,7 @@ function Cards({ title , notifievent , clubname , img , id} : { id: any; title: 
   const router = useRouter()
 
   const handleclick =()=>{
-    router.push('/events/'+clubname.toLowerCase())
+    router.push('/events/'+clubname)
 
   }
   
