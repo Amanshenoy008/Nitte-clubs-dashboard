@@ -12,7 +12,6 @@ function Cards({ title , notifievent , clubname , img , id} : { id: any; title: 
 
   }
   
-  //console.log(id)
 
   return (
     <div className='border-2 border-black w-64 h-64 rounded-xl p-3 flex flex-col gap-14 bg-pink-300 hover:cursor-pointer' 
