@@ -14,7 +14,7 @@ const idd = ({e}:{e:any}) => {
     <div>
         {
             (e ? <h1>Loading</h1>:
-            e.map((d)=>(
+            e.map((d : any)=>(
                 <div>
                     
                 </div>
