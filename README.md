@@ -8,6 +8,12 @@ NextJs, Tailwindcss + DaisyUI + ReactMUI , Prisma ORM
 
 <h1>Running the project locally</h1>
  <li>Clone the repo</li>
+    <li> Create a .env file</li>
+    <li>Put the contents in the env file </li>
+    ```
+    DATABASE_URL="file:./dev.db"
+    ```
+    <li>Run the commands in terminal</li>
 
 ```
 npm i 
@@ -16,7 +22,7 @@ npx prisma generate
 
 npx prisma migrate dev
 
-npx run dev
+npm run dev
 ```
 
 

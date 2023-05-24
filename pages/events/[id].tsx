@@ -10,8 +10,8 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
  // const router = useRouter();
  // const { id } = router.query;
   // console.log(id)
-  // console.log(e)
-  console.log(d)
+   console.log(e)
+  //console.log(d)
   const handleclick = () => {
     console.log(search);
     setdata();
@@ -19,7 +19,7 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
 
   return (
     <>
-      <div>
+      <div className={"h-screen w-screen bg-red-500"}>
         {!e ? (
           <>
             <div className="p-5 ">
@@ -39,12 +39,13 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
           </>
         ) : (
             <>
-            <div>
+            <div >
                {<Header  title={d.title} img={d.img} /> }
             </div>
             <div>
                   <input
                     type="text"
+                    className="input input-bordered w-full max-w-xs"
                     onChange={(e) => setsearch(e.target.value)}
                   />
                   <button className="btn" onClick={handleclick}>
@@ -81,22 +82,22 @@ async function getServerSideProps({ query }: { query: any }) {
 
   const d = await prisma.events.findFirst({
     where:{
-        clubname:id
+        id:parseInt(id)
     }
   })
   id = id.toLowerCase()
   let e: any;
   switch (id) {
-    case "authorcraft":
+    case "1":
       e = await prisma.authorcraft.findMany({});
       break;
-    case "aura":
+    case "3":
       e = await prisma.aura.findMany({});
       break;
-    case "csi":
+    case "4":
       e = await prisma.csi.findMany({});
       break;
-    case "tallem":
+    case "2":
       e = await prisma.tallem.findMany({});
       break;
     default:
