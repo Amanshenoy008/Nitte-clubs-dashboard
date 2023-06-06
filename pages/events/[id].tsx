@@ -19,7 +19,7 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
 
   return (
     <>
-      <div className={"h-screen w-screen bg-red-500"}>
+      <div className={"h-screen w-screen bg-slate-900"}>
         {!e ? (
           <>
             <div className="p-5 ">
@@ -48,20 +48,20 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
                     className="input input-bordered w-full max-w-xs"
                     onChange={(e) => setsearch(e.target.value)}
                   />
-                  <button className="btn" onClick={handleclick}>
+                  <button className="btn btn-accent" onClick={handleclick}>
                     Search
                   </button>
-                </div>
-          {e.map((d: any) => (
+            </div>
+          {/*e.map((d: any) => (
             <div >
 
                 <div>
-                    {/*here the all the events will be shown */}
+                Here all the prev events will be shown
                 </div>
           
             </div>
             
-          ))}
+          ))*/}
 
         
         </>
