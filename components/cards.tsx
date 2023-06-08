@@ -37,8 +37,8 @@ function Cards({ title , notifievent , clubname , img , id} : { id: any; title: 
         <div>
           {clubname}
         </div>
-        <div>
-          <img src="" alt="image" />
+        <div className='-translate-y-6'>
+          <img src={img} alt="image" className='rounded-full w-14 ' />
         </div>
       </div>
     </motion.div>

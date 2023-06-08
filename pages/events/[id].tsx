@@ -52,17 +52,24 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
                     Search
                   </button>
             </div>
-          {/*e.map((d: any) => (
-            <div >
-
-                <div>
-                Here all the prev events will be shown
-                </div>
-          
+            <div className="flex flex-col gap-10 w-96 h-48 overflow-x-hidden overflow-y-scroll snap-mandatory snap-y p-10 scrollbar-none">
+          {e.map((d: any) => (
+            <div className="bg-white bg-opacity-20 backdrop-blur-lg  drop-shadow-lg text-white rounded-lg flex flex-col gap-4 p-3 snap-center" key={d.id}>
+                
+                  <h1>{d.title}</h1>
+                  <div className="flex flex-row justify-between">
+                    <p>{d.timendata}</p>
+                    <p>{d.venue}</p>
+                  </div>
+                  <p>
+                    {d.eventdetail}
+                  </p>
+                
+                
             </div>
             
-          ))*/}
-
+          ))}
+          </div>
         
         </>
         )}
@@ -103,6 +110,7 @@ async function getServerSideProps({ query }: { query: any }) {
     default:
       e = [];
   }
+
   //console.log(e)
   return {
     props: {

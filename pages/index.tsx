@@ -2,6 +2,7 @@ import Cards from "@/components/cards"
 import Head from "next/head"
 import {PrismaClient} from "@prisma/client"
 import {useEffect, useState } from "react"
+import Footer from "@/components/Footer"
 //import dynamic from "next/dynamic"
 //import { useParallax } from "react-scroll-parallax/dist/hooks/useParallax"
 
@@ -13,7 +14,7 @@ export default  function Home ({events} : {events:any}) {
   const [load, setload]: any = useState(false)
  
 
-  console.log(events)
+  //console.log(events)
 
   
   
@@ -24,7 +25,7 @@ export default  function Home ({events} : {events:any}) {
     <Head>
         <title>Clubz-zone</title>
     </Head>
-    <div className="bg-slate-900 h-screen w-screen">
+    <div className="bg-slate-900 h-screen w-screen overflow-x-hidden">
     
     <div className=" flex flex-row gap-11 p-6  flex-wrap	justify-center ">
       
@@ -37,10 +38,14 @@ export default  function Home ({events} : {events:any}) {
   )}
 
     </div>
-
     <div className="tracking-wide" id="big-footer">
         {" "}N.M.A.M.I.T{" "}
     </div>
+
+    <div className=" inset-x-0 bottom-0">
+    <Footer />
+    </div>
+   
     </div>
     </>
   )
