@@ -23,6 +23,7 @@ export default  function Home ({events} : {events:any}) {
   return (
     <>
     <Head>
+        <meta charSet="UTF-8"/>
         <title>Clubz-zone</title>
     </Head>
     <div className="bg-slate-900 h-screen w-screen overflow-x-hidden">

@@ -17,7 +17,7 @@ const Footer = () => {
         }else{
             console.log('log err')
             toast.dark("Invalid Password !", {
-                position: toast.POSITION.TOP_LEFT
+                position: toast.POSITION.TOP_RIGHT
               });
         }
         

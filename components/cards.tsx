@@ -25,7 +25,7 @@ function Cards({ title , notifievent , clubname , img , id} : { id: any; title: 
         ease: [0, 0.71, 0.2, 1.01]
       }}
 
-    className=' w-64 h-64 rounded-xl p-3 flex flex-col gap-14 bg-slate-500 hover:cursor-pointer  tracking-wide' 
+    className=' w-64 h-64 rounded-xl p-3 flex flex-col gap-14 bg-slate-500 hover:cursor-pointer  tracking-wide ease-in-out ' 
     onClick={handleclick} key={id} >
       <div className="text-2xl text-white">{title}</div>
       <div className='border-2 border-slate-500 p-3 bg-white bg-opacity-20 backdrop-blur-lg  drop-shadow-lg text-black text-xs z-20'>
