@@ -132,7 +132,7 @@ async function getServerSideProps({ query }: { query: any }) {
       e = await prisma.csi.findMany({});
       break;
     case "2":
-      e = await prisma.tallem.findMany({});
+      e = await prisma.talleem.findMany({});
       break;
     default:
       e = [];

@@ -14,7 +14,7 @@ model events {
   id Int @id @default(autoincrement())
   title String
   notifievent String
-  clubname String
+  clubname String  @unique
   img String
 }
 
@@ -35,7 +35,7 @@ model aura{
   eventdetail String
 }
 
-model tallem{
+model talleem{
   id Int @id @default(autoincrement())
   title String
   timendata String
@@ -45,6 +45,34 @@ model tallem{
 }
 
 model csi{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+model saca{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+model greymatter{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+model rachana{
+  id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+model hackerearthclub{
   id Int @id @default(autoincrement())
   title String
   timendata String

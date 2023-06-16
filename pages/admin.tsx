@@ -14,10 +14,29 @@ const Admin = () => {
 
     useEffect(()=>{
         switch(clubname){
-            case 'Saca': setimg(links.saca)
+            case 'saca': setimg(links.saca)
                         break
-            case 'Tallem': setimg(links.talleem)
+            case 'tallem': setimg(links.talleem)
                          break
+            case 'csi': break
+            case 'rachana': setimg(links.rachana)
+                        break
+            case 'aura' : setimg(links.aura)
+                        break
+            case 'greymatter' : setimg(links.greymatter)
+                         break
+            case 'ecolution' : setimg(links.ecolution)
+                        break
+            case 'stereoclub' : setimg(links.stereoclub)
+                        break
+            case 'yujforlife' : setimg(links.yujforlife)
+                        break
+            case 'annadana' : setimg(links.annadana)
+                        break
+            case 'clickzclub' : setimg(links.clickzclub)
+                        break
+            case 'hackerearthclub' : setimg(links.hackerearthclub)
+            break
             default : setimg('')
         }
         console.log(img)
@@ -35,6 +54,7 @@ const Admin = () => {
             img:img,
         }
         console.log(value)
+        
 
        //const res = await fetch('/api/hello').then(data=>data.json()).then((d)=>{ console.log(d)})
        const res = await fetch('/api/sendevent',{
