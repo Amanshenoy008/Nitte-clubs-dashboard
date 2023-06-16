@@ -1,5 +1,7 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+import {links} from '@/data/links'
 
 const Admin = () => {
 
@@ -7,16 +9,32 @@ const Admin = () => {
     const [time,settime]: any = useState()
     const [Venue,setvenue]: any = useState()
     const [detail,setdetail]: any = useState()
+    const [clubname,setclubname]: any = useState()
+    const [img,setimg]: any =useState()
+
+    useEffect(()=>{
+        switch(clubname){
+            case 'Saca': setimg(links.saca)
+                        break
+            case 'Tallem': setimg(links.talleem)
+                         break
+            default : setimg('')
+        }
+        console.log(img)
+    },[clubname])
+    
 
     const handlesubmit =  async (e: any)=>{
         e.preventDefault()
-
-        const value = {
+        const value: object = {
             title:title,
             timendate: time,
             Venue: Venue,
-            detail:detail
+            detail:detail,
+            clubname:clubname,
+            img:img,
         }
+        console.log(value)
 
        //const res = await fetch('/api/hello').then(data=>data.json()).then((d)=>{ console.log(d)})
        const res = await fetch('/api/sendevent',{
@@ -27,8 +45,15 @@ const Admin = () => {
         body: JSON.stringify(value)
        }).then(d=>d.json()).then(data=>{
         console.log(data)
+        toast.dark("Event Added !", {
+            position: toast.POSITION.TOP_RIGHT
+          });
+        
        }).catch(err=>{
         console.log(err)
+        toast.dark("Invalid entry !", {
+            position: toast.POSITION.TOP_RIGHT
+          });
        })
     }
 
@@ -65,9 +90,18 @@ const Admin = () => {
                     className="input input-bordered input-primary w-full max-w-xs"
                     cols={30} rows={10}  onChange={(e)=>{setdetail(e.target.value)}} required ></textarea>
                 </div>
+                <div>
+                    <label className="">Choose Your club</label>
+                    <select name="" id="" onChange={(e)=>{ setclubname(e.target.value)}}>
+                        {Object.keys(links).map((d)=>(
+                            <option value={d} key={d}>{d}</option>
+                        ))}
+                    </select>
+                </div>
                 <button className="btn btn-primary w-36">Submit</button>
             </form>
         </div>
+        <ToastContainer />
     </div>
     </> );
 }
