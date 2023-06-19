@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Footer = () => {
 
-    const [pass,setpass]: any = useState()
+    const [pass,setpass]: any = useState('')
 
     const router = useRouter()
 
@@ -29,8 +29,10 @@ const Footer = () => {
         
         <input type="password" className="input input-bordered w-full max-w-xs" 
         onChange={(e)=>setpass(e.target.value)}
-        placeholder="Password Here" id="" />
-        <button className="btn btn-warning" >Login</button>
+        placeholder="Password Here"
+        value={pass}
+        id="" />
+        <button className="btn btn-primary" >Login</button>
         <ToastContainer />
     </form>
     

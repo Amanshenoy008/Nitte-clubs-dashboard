@@ -44,13 +44,6 @@ model talleem{
 
 }
 
-model csi{
-  id Int @id @default(autoincrement())
-  title String
-  timendata String
-  venue     String
-  eventdetail String
-}
 model saca{
   id Int @id @default(autoincrement())
   title String
@@ -74,6 +67,37 @@ model rachana{
 }
 model hackerearthclub{
   id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+
+model kalanjali{
+   id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+
+model ecolution{
+   id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+model clickzclub{
+   id Int @id @default(autoincrement())
+  title String
+  timendata String
+  venue     String
+  eventdetail String
+}
+
+model stereoclub{
+   id Int @id @default(autoincrement())
   title String
   timendata String
   venue     String

@@ -16,7 +16,7 @@ const Admin = () => {
         switch(clubname){
             case 'saca': setimg(links.saca)
                         break
-            case 'tallem': setimg(links.talleem)
+            case 'talleem': setimg(links.talleem)
                          break
             case 'csi': break
             case 'rachana': setimg(links.rachana)
@@ -86,7 +86,7 @@ const Admin = () => {
             {/* form which will add new data to event model */}
             <h1>{" "}Add Details of new Event{" "}</h1>
             <form onSubmit={(e)=>{handlesubmit(e)}} className="flex flex-col gap-5 p-3">
-                <div className=" flex flex-row gap-5 w-64 border-2 border-red-700">
+                <div className=" flex flex-row gap-5 w-64 ">
                 <label>Title</label>
                 <input type="text"  id=""
                 className="input input-bordered input-primary w-full max-w-xs"

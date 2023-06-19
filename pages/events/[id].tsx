@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const idd = ({ e ,d}: { e: any , d:any }) => {
-  const [search, setsearch]: any = useState();
+  const [search, setsearch]: any = useState('');
   const [data, setdata]: any = useState(e);
  const router = useRouter();
  // const { id } = router.query;
@@ -22,7 +22,7 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
     }else{
       const filtereddata = e.filter((d: any)=>{return d.title.toLowerCase().includes(search.toLowerCase())})
     setdata(filtereddata)
-    
+    setsearch('')
     if(filtereddata.length === 0){
       toast.dark('Search not found !!!',{
         position: toast.POSITION.TOP_RIGHT
@@ -63,7 +63,7 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
         ) : (
             <>
             <div>
-              <button className="btn btn-error" onClick={hbc}>{"<"}</button>
+              <button className="btn btn-primary" onClick={hbc}>{"<"}</button>
             </div>
             <div className="pt-8">
                {<Header  title={d.title} img={d.img} /> }
@@ -74,14 +74,16 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
                     placeholder="Type Here..."
                     className="input input-bordered w-full max-w-xs"
                     onChange={(e) => setsearch(e.target.value)}
+                    value={search}
                   />
                   <button className="btn btn-accent" onClick={handleclick}>
                     Search
                   </button>
             </div>
-            <div className="flex flex-row gap-10  h-64 overflow-x-scroll overflow-y-hidden snap-mandatory snap-x p-10 scrollbar-none">
+            <div className="flex flex-row mt-4 space-x-5  h-64  overflow-x-auto overflow-y-hidden snap-mandatory snap-x p-10 scrollbar-none border-x-2 rounded-xl border-white">
+          <div className="flex flex-row-reverse gap-10">
           {data.map((d: any) => (
-            <div className="bg-white bg-opacity-20 backdrop-blur-lg  drop-shadow-lg text-white rounded-lg flex flex-col gap-4 p-5 snap-center w-64 hover:scale-125 duration-75 ease-in-out cursor-pointer " key={d.id}>
+            <div className="bg-white bg-opacity-20 backdrop-blur-lg  drop-shadow-lg text-white rounded-lg flex flex-col gap-4 p-5 snap-center w-64 hover:scale-125 duration-75 easeout cursor-pointer " key={d.id}>
                 
                   <h1>{d.title}</h1>
                   <div className="flex flex-row justify-between">
@@ -97,6 +99,7 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
             
           ))}
           </div>
+          </div>
         
         </>
         )}
@@ -111,7 +114,7 @@ export default idd;
 async function getServerSideProps({ query }: { query: any }) {
   let { id } = query;
   
-  const prisma = new PrismaClient();
+  const prisma:any = new PrismaClient();
   //console.log(id)
 
   const d = await prisma.events.findFirst({
@@ -120,8 +123,8 @@ async function getServerSideProps({ query }: { query: any }) {
     }
   })
   id = id.toLowerCase()
-  let e: any;
-  switch (id) {
+  let e: any 
+ switch (id) {
     case "1":
       e = await prisma.authorcraft.findMany({});
       break;
@@ -137,6 +140,8 @@ async function getServerSideProps({ query }: { query: any }) {
     default:
       e = [];
   }
+ // const model:any = prisma[id]
+  //const e = await model.findMany({})
 
   //console.log(e)
   return {
