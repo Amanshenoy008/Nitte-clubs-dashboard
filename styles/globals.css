@@ -7,3 +7,9 @@
 *{
     font-family: 'Geologica', sans-serif;
 }
+
+@layer components{
+    .form-class{
+        @apply input input-bordered input-primary w-full max-w-xs;
+    }
+}

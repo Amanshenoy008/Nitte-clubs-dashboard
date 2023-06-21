@@ -17,7 +17,7 @@ export default async function setevent(req:NextApiRequest ,res: NextApiResponse)
         const {title, timendate , Venue , detail , clubname , img} = req.body
 
         try{
-        const newdata = detail.slice(0,-2)+'...'
+        const newdata = detail?.slice(0,-4)+'...'
         const dataevent = await prisma.events.upsert({
             where:{
                 clubname:clubname

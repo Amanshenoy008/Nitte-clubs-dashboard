@@ -76,7 +76,7 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
                     onChange={(e) => setsearch(e.target.value)}
                     value={search}
                   />
-                  <button className="btn btn-accent" onClick={handleclick}>
+                  <button className="btn btn-primary" onClick={handleclick}>
                     Search
                   </button>
             </div>
@@ -85,10 +85,21 @@ const idd = ({ e ,d}: { e: any , d:any }) => {
           {data.map((d: any) => (
             <div className="bg-white bg-opacity-20 backdrop-blur-lg  drop-shadow-lg text-white rounded-lg flex flex-col gap-4 p-5 snap-center w-64 hover:scale-125 duration-75 easeout cursor-pointer " key={d.id}>
                 
-                  <h1>{d.title}</h1>
+                  <h1 className="text-xl">{d.title}</h1>
                   <div className="flex flex-row justify-between">
-                    <p>{d.timendata}</p>
-                    <p>{d.venue}</p>
+                    <p className="flex flex-row gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                     <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clipRule="evenodd" />
+                    </svg>
+
+                      {d.timendata}
+                      </p>
+                    <p className="flex flex-row gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-red-500">
+                      <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
+                      </svg>
+                      {d.venue}
+                      </p>
                   </div>
                   <p>
                     {d.eventdetail}
@@ -115,16 +126,17 @@ async function getServerSideProps({ query }: { query: any }) {
   let { id } = query;
   
   const prisma:any = new PrismaClient();
-  //console.log(id)
+  console.log(id)
 
   const d = await prisma.events.findFirst({
     where:{
-        id:parseInt(id)
+        clubname:id
     }
   })
-  id = id.toLowerCase()
-  let e: any 
- switch (id) {
+  //id = id.toLowerCase()
+  //let e: any 
+
+ /*switch (id) {
     case "1":
       e = await prisma.authorcraft.findMany({});
       break;
@@ -139,9 +151,10 @@ async function getServerSideProps({ query }: { query: any }) {
       break;
     default:
       e = [];
-  }
- // const model:any = prisma[id]
-  //const e = await model.findMany({})
+  }*/
+
+  const model:any = prisma[id]
+  const e = await model.findMany({})
 
   //console.log(e)
   return {

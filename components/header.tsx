@@ -10,10 +10,10 @@ const Header = ({title,img}:{title:string,img:string}) => {
         <div className=" text-white text-2xl break-all tracking-wide font-semibold">
            {"New Event: "} {title}{"*"}
         </div>
-        <div>
+        <div className="cursor-pointer hover:scale-95 ease-in-out">
             <img src={img} alt="img here" className="rounded-md w-32" />
         </div>
-
+        
 
     </div>
     </>  );
