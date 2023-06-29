@@ -2,11 +2,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { useSession , signIn} from "next-auth/react";
 
 const Footer = () => {
 
     const [pass,setpass]: any = useState('')
-
+    const {data , status} = useSession()
     const router = useRouter()
 
     const handlelogin =(e:any)=>{
@@ -20,6 +21,7 @@ const Footer = () => {
                 position: toast.POSITION.TOP_RIGHT
               });
         }
+        //signIn()
         
     }
 
@@ -32,7 +34,7 @@ const Footer = () => {
         placeholder="Password Here"
         value={pass}
         id="" />
-        <button className="btn btn-primary" >Login</button>
+        <button className="btn btn-primary"  >Login</button>
         <ToastContainer />
     </form>
     

@@ -126,7 +126,7 @@ async function getServerSideProps({ query }: { query: any }) {
   let { id } = query;
   
   const prisma:any = new PrismaClient();
-  console.log(id)
+ // console.log(id)
 
   const d = await prisma.events.findFirst({
     where:{
